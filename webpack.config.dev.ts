@@ -4,8 +4,8 @@ import webpack from "webpack";
 
 const config: webpack.Configuration = {
   entry: {
-    "bundle": "./app/dev.ts",
-    __less: "./public/style/main.less",
+    "bundle": "./website/dev.ts",
+    __less: "./style/main.less",
   },
   module: {
     rules: [
@@ -37,7 +37,7 @@ const config: webpack.Configuration = {
   },
   output: {
     filename: "[name]-dev.js",
-    path: path.resolve("public"),
+    path: path.resolve("docs"),
   },
   plugins: [
     new MiniCssExtractPlugin({

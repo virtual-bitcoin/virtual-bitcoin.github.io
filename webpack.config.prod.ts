@@ -19,8 +19,8 @@ const config: webpack.Configuration = {
     ],
   },
   entry: {
-    "bundle": "./app/prod.ts",
-    __less: "./public/style/main.less",
+    "bundle": "./website/prod.ts",
+    __less: "./style/main.less",
   },
   module: {
     rules: [
@@ -52,7 +52,7 @@ const config: webpack.Configuration = {
   },
   output: {
     filename: "[name].js",
-    path: path.resolve("public"),
+    path: path.resolve("docs"),
   },
   plugins: [
     new MiniCssExtractPlugin({
