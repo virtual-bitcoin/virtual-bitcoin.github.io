@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "watch": "nodemon --watch dist/pages --exec node generate.js",
     "webpack-dev": "node node_modules/webpack-cli/bin/cli.js --mode development --watch --config webpack.config.dev.ts",
     "webpack-prod": "node node_modules/webpack-cli/bin/cli.js --mode production --config webpack.config.prod.ts"
   },
