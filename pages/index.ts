@@ -24,6 +24,26 @@ export default function index() {
           }),
         ),
       ),
+      el(
+        ".intro-view",
+        el(
+          "section.hero",
+          { style: { backgroundImage: "url('/images/hero.jpg')" } },
+          el(
+            "video",
+            { autoplay: true, loop: true, muted: true, playsInline: true },
+            el("source", {
+              src: "/videos/test.mp4",
+              type: "video/mp4",
+            }),
+          ),
+          el(
+            ".content",
+            el("h1", "Virtual Bitcoin"),
+            el("p", "Bitcoin implemented as a EVM smart contract"),
+          ),
+        ),
+      ),
     ),
   );
 }

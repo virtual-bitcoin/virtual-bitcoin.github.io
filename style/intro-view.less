@@ -1,0 +1,56 @@
+.intro-view {
+  >section.hero {
+    position: relative;
+    height  : 600px;
+
+    background-size    : cover;
+    background-position: center;
+
+    >video {
+      position  : absolute;
+      top       : 0;
+      left      : 0;
+      width     : 100%;
+      height    : 100%;
+      object-fit: cover;
+    }
+
+    >.content {
+      position  : absolute;
+      top       : 0;
+      left      : 0;
+      right     : 0;
+      bottom    : 0;
+      background: rgba(0, 0, 0, 0.5);
+
+      display        : flex;
+      flex-direction : column;
+      align-items    : center;
+      justify-content: center;
+      padding        : 0 20px;
+
+      >h1 {
+        font-size  : 60px;
+        text-align : center;
+        font-family: "DominoBrick";
+
+        @container (width <=@phone-width) {
+          font-size: 48px;
+        }
+      }
+
+      >p {
+        margin-top: 16px;
+        text-align: center;
+      }
+
+      >a.button {
+        margin-top: 22px;
+      }
+    }
+  }
+
+  >section:not(.hero) {
+    margin-top: 108px;
+  }
+}

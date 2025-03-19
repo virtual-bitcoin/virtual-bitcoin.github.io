@@ -1784,4 +1784,51 @@ li.chat-content-list-item.temp {
 .layout > header > h1 > a > img {
   height: 40px;
 }
+.intro-view > section.hero {
+  position: relative;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+}
+.intro-view > section.hero > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.intro-view > section.hero > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.intro-view > section.hero > .content > h1 {
+  font-size: 60px;
+  text-align: center;
+  font-family: "DominoBrick";
+}
+@container (width <= 520px) {
+  .intro-view > section.hero > .content > h1 {
+    font-size: 48px;
+  }
+}
+.intro-view > section.hero > .content > p {
+  margin-top: 16px;
+  text-align: center;
+}
+.intro-view > section.hero > .content > a.button {
+  margin-top: 22px;
+}
+.intro-view > section:not(.hero) {
+  margin-top: 108px;
+}
 
