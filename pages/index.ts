@@ -15,7 +15,10 @@ export default function index() {
       ".layout",
       el(
         "header",
-        el("h1", el("a", getLogo(), "Virtual Bitcoin", { href: "/" })),
+        el(
+          "h1",
+          el("a", getLogo(), el("span", "Virtual Bitcoin"), { href: "/" }),
+        ),
         el(
           ".buttons",
           el("a.button.contained", "Mine VBTC", {

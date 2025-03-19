@@ -1821,6 +1821,11 @@ li.chat-content-list-item.temp {
     font-size: 48px;
   }
 }
+@container (width <= 520px) {
+  .intro-view > section.hero > .content > h1 > a > span {
+    display: none;
+  }
+}
 .intro-view > section.hero > .content > p {
   margin-top: 16px;
   text-align: center;
