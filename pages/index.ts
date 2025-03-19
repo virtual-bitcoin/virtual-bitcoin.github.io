@@ -16,6 +16,13 @@ export default function index() {
       el(
         "header",
         el("h1", el("a", getLogo(), "Virtual Bitcoin", { href: "/" })),
+        el(
+          ".buttons",
+          el("a.button.contained", "Mine VBTC", {
+            href: "/mine-vbtc",
+            target: "_blank",
+          }),
+        ),
       ),
     ),
   );
