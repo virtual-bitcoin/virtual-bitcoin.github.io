@@ -11,6 +11,12 @@ export default function index() {
       cssFiles: ["/bundle.css"],
       twitterHandle: "@virtual_bitcoin",
     },
-    el(".layout", el("header", el("h1", getLogo(), "Virtual Bitcoin"))),
+    el(
+      ".layout",
+      el(
+        "header",
+        el("h1", el("a", getLogo(), "Virtual Bitcoin", { href: "/" })),
+      ),
+    ),
   );
 }

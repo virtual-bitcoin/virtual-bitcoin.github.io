@@ -1,3 +1,6 @@
+/*!*****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!../gaiaprotocol-style/lib/reset.css ***!
+  \*****************************************************************************************************************/
 /***
     The new CSS reset - version 1.11.2 (last updated 15.11.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -107,6 +110,9 @@ meter {
 ::-webkit-details-marker {
     display: none;
 }
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/less-loader/dist/cjs.js!./style/main.less ***!
+  \**************************************************************************************************************************************/
 @font-face {
   font-family: Söhne;
   src: url("https://common-resources.gaia.cc/fonts/soehne.woff2") format("woff2");
@@ -1742,19 +1748,40 @@ li.chat-content-list-item.temp {
   gap: 8px;
 }
 @font-face {
-  font-family: "DOSMyungjo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff") format("woff");
+  font-family: "DominoBrick";
+  src: url("/fonts/dominobrick.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
-.layout > header > h1 {
-  font-family: "DOSMyungjo";
+.layout {
+  padding-top: 72px;
+}
+@container (width <= 520px) {
+  .layout {
+    padding-bottom: 56px;
+  }
+}
+.layout > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+.layout > header > h1 > a {
+  font-family: "DominoBrick";
   font-size: 28px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
-.layout > header > h1 > .logo > img {
+.layout > header > h1 > a > img {
   height: 40px;
 }
 

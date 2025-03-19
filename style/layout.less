@@ -1,14 +1,36 @@
 .layout {
-  >header {
-    >h1 {
-      font-family: "DOSMyungjo";
-      font-size  : 28px;
-      display    : flex;
-      align-items: center;
-      gap        : 16px;
+  padding-top: 72px;
 
-      >.logo>img {
-        height: 40px;
+  @container (width <=@phone-width) {
+    padding-bottom: 56px;
+  }
+
+  >header {
+    position: fixed;
+    top     : 0;
+    left    : 0;
+    right   : 0;
+    z-index : 1000;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter : blur(24px);
+
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    padding        : 16px 24px;
+
+    >h1 {
+      >a {
+        font-family: "DominoBrick";
+        font-size  : 28px;
+        display    : flex;
+        align-items: center;
+        gap        : 12px;
+
+        >img {
+          height: 40px;
+        }
       }
     }
   }
