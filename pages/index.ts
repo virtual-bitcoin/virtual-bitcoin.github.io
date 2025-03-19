@@ -36,7 +36,7 @@ export default function index() {
             "video",
             { autoplay: true, loop: true, muted: true, playsInline: true },
             el("source", {
-              src: "/videos/test.mp4",
+              src: "/videos/hero.mp4",
               type: "video/mp4",
             }),
           ),

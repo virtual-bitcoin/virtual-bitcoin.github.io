@@ -28,6 +28,12 @@
         align-items: center;
         gap        : 12px;
 
+        @container (width <=@phone-width) {
+          >span {
+            display: none;
+          }
+        }
+
         >img {
           height: 40px;
         }

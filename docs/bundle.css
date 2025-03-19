@@ -1781,6 +1781,11 @@ li.chat-content-list-item.temp {
   align-items: center;
   gap: 12px;
 }
+@container (width <= 520px) {
+  .layout > header > h1 > a > span {
+    display: none;
+  }
+}
 .layout > header > h1 > a > img {
   height: 40px;
 }
@@ -1821,14 +1826,14 @@ li.chat-content-list-item.temp {
     font-size: 48px;
   }
 }
-@container (width <= 520px) {
-  .intro-view > section.hero > .content > h1 > a > span {
-    display: none;
-  }
-}
 .intro-view > section.hero > .content > p {
   margin-top: 16px;
   text-align: center;
+}
+@container (width <= 520px) {
+  .intro-view > section.hero > .content > p {
+    font-size: 14px;
+  }
 }
 .intro-view > section.hero > .content > a.button {
   margin-top: 22px;

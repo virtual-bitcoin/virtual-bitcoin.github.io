@@ -37,17 +37,15 @@
         @container (width <=@phone-width) {
           font-size: 48px;
         }
-
-        @container (width <=@phone-width) {
-          >a>span {
-            display: none;
-          }
-        }
       }
 
       >p {
         margin-top: 16px;
         text-align: center;
+
+        @container (width <=@phone-width) {
+          font-size: 14px;
+        }
       }
 
       >a.button {
