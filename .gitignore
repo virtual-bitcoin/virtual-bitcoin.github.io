@@ -1,42 +1,39 @@
-# OS X
-.DS_Store*
-#Icon?
-._*
+# Node modules
+node_modules/
+dist/
+build/
 
-# Windows
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
 Thumbs.db
-ehthumbs.db
-Desktop.ini
 
-# Linux
-.directory
-*~
-
-# npm
-node_modules
-package-lock.json
-*.log
-*.gz
-
-# yarn
-yarn.lock
-
-# ts
-dist
-
-# secure
+# Environment
 .env
-supabase/functions/_shared/firebase-adminsdk-key.json
-old/supabase/functions/_shared/firebase-adminsdk-key.json
+.env.*.local
 
-# vscode
-.history
+# Editor & IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-# hardhat
-cache
-artifacts
-typechain*
-.openzeppelin
+# Coverage
+coverage/
 
-# deno
-deno.lock
+# TypeScript
+*.tsbuildinfo
+
+# Logs & lock files
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+npm-debug.log*

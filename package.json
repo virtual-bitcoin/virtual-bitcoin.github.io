@@ -1,28 +1,31 @@
 {
   "scripts": {
-    "watch": "nodemon --watch dist/pages --exec node generate.js",
-    "webpack-dev": "node node_modules/webpack-cli/bin/cli.js --mode development --watch --config webpack.config.dev.ts",
-    "webpack-prod": "node node_modules/webpack-cli/bin/cli.js --mode production --config webpack.config.prod.ts"
+    "build-html": "npx tsx src/site/build.ts",
+    "watch-html": "nodemon --watch src/site/pages --ext ts --exec \"yarn build-html\"",
+    "start-webpack": "webpack serve --watch --mode=development",
+    "start": "concurrently -k \"yarn watch-html\" \"yarn start-webpack\"",
+    "build": "yarn build-html && webpack --mode=production"
   },
-  "type": "module",
   "dependencies": {
-    "@common-module/app": "^0.1.6",
-    "@common-module/app-components": "^0.1.6",
-    "@gaiaprotocol/ui-preset": "^0.0.2"
+    "@webtaku/el": "^0.0.3",
+    "@webtaku/h": "^0.0.3"
   },
   "devDependencies": {
-    "@common-module/static-site-generator": "^0.0.4",
-    "@types/node": "^22.7.5",
-    "@types/webpack": "^5.28.5",
+    "concurrently": "^9.2.0",
     "css-loader": "^7.1.2",
-    "less": "^4.2.0",
-    "less-loader": "^12.2.0",
-    "mini-css-extract-plugin": "^2.9.1",
-    "ts-loader": "^9.5.1",
+    "ignore-emit-webpack-plugin": "^2.0.6",
+    "less": "^4.3.0",
+    "less-loader": "^12.3.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "webpack": "^5.100.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
     "yaml-loader": "^0.8.1"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
