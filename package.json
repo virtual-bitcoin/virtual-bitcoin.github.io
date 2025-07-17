@@ -7,10 +7,17 @@
     "build": "yarn build-html && webpack --mode=production"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.8",
+    "@tanstack/react-query": "^5.83.0",
     "@webtaku/el": "^0.0.3",
-    "@webtaku/h": "^0.0.3"
+    "@webtaku/h": "^0.0.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "wagmi": "^2.15.7"
   },
   "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "concurrently": "^9.2.0",
     "css-loader": "^7.1.2",
     "ignore-emit-webpack-plugin": "^2.0.6",

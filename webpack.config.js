@@ -23,7 +23,7 @@ module.exports = {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader, {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               url: false,
             },
@@ -33,12 +33,12 @@ module.exports = {
       },
       {
         test: /\.ya?ml$/,
-        use: "yaml-loader",
+        use: 'yaml-loader',
       },
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js']
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
