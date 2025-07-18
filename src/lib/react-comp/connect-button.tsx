@@ -14,7 +14,7 @@ const queryClient = new QueryClient();
 
 // wagmi + rainbowkit 최신 설정
 const { connectors } = getDefaultWallets({
-  appName: 'My App',
+  appName: 'Virtual Bitcoin',
   projectId: '88d779147f818e49e16a5eb89a3510f5',
 });
 
