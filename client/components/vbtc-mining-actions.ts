@@ -20,6 +20,17 @@ export class VbtcMiningActions extends LitElement {
     .actions {
       display: flex;
       gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* 모바일 대응 */
+    @media (max-width: 640px) {
+      .actions {
+        flex-direction: column;
+      }
+      sl-button {
+        width: 100%;
+      }
     }
   `;
 

@@ -1,6 +1,6 @@
-import { getAccount, watchAccount } from '@wagmi/core';
+import { getAccount, watchAccount, WatchAccountReturnType } from '@wagmi/core';
 import { customElement } from 'lit/decorators.js';
-import { getMyPizzas } from '../vbtc/vbtc';
+import { getMyPizzaCount } from '../vbtc/vbtc';
 import { VbtcBaseCard } from './vbtc-base-card';
 import { wagmiConfig } from './wallet';
 
@@ -9,6 +9,8 @@ class VbtcMyPizzasCard extends VbtcBaseCard {
   constructor() {
     super('My Pizzas');
   }
+
+  #unwatch: WatchAccountReturnType | null = null;
 
   connectedCallback(): void {
     super.connectedCallback();
@@ -20,7 +22,7 @@ class VbtcMyPizzasCard extends VbtcBaseCard {
       this.value = 'Not Connected';
     }
 
-    watchAccount(wagmiConfig, {
+    this.#unwatch = watchAccount(wagmiConfig, {
       onChange: (account) => {
         if (account?.address) {
           this.fetchData();
@@ -31,11 +33,16 @@ class VbtcMyPizzasCard extends VbtcBaseCard {
     });
   }
 
+  disconnectedCallback(): void {
+    super.disconnectedCallback();
+    this.#unwatch?.();
+  }
+
   async fetchValueFromContract(): Promise<string> {
     const account = getAccount(wagmiConfig).address;
     if (!account) return 'Not Connected';
 
-    const myPizzas = await getMyPizzas(account);
+    const myPizzas = await getMyPizzaCount(account);
     return myPizzas.toString();
   }
 }

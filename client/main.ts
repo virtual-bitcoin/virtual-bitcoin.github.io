@@ -1,5 +1,6 @@
 import '@shoelace-style/shoelace';
 import { el } from '@webtaku/el';
+import './components/vbtc-all-pizzas-list';
 import './components/vbtc-balance-card';
 import './components/vbtc-buy-pizza-card';
 import './components/vbtc-mining-actions';
@@ -48,7 +49,8 @@ if (miningInterfaceContainer) {
     ),
     el('vbtc-buy-pizza-card'),
     el('vbtc-my-pizzas-list'),
-    el('vbtc-mining-actions'),
-    el('vbtc-status-card')
+    //el('vbtc-mining-actions'),
+    //el('vbtc-status-card'),
+    el('vbtc-all-pizzas-list')
   );
 }

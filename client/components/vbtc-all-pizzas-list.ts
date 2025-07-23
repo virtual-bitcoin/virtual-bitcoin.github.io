@@ -1,23 +1,22 @@
-import { css, html, LitElement } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import { getAccount, watchAccount, WatchAccountReturnType } from '@wagmi/core';
-import { getMyPizzas } from '../vbtc/vbtc';
-import { wagmiConfig } from './wallet';
+import { getAllPizzas } from '../vbtc/vbtc';
 
+import { getAccount } from '@wagmi/core';
 import './vbtc-pizza-item';
+import { wagmiConfig } from './wallet';
 
 type Pizza = {
   id: number;
+  owner: string;
   power: bigint;
   subsidy: bigint;
 };
 
-@customElement('vbtc-my-pizzas-list')
-export class VbtcMyPizzasList extends LitElement {
+@customElement('vbtc-all-pizzas-list')
+export class VbtcAllPizzasList extends LitElement {
   @state() pizzas: Pizza[] = [];
   @state() loading = false;
-
-  #unwatch: WatchAccountReturnType | null = null;
 
   static styles = css`
     .card {
@@ -41,34 +40,23 @@ export class VbtcMyPizzasList extends LitElement {
       gap: 0.5rem;
       margin-top: 1rem;
     }
+
+    p {
+      color: #9ca3af;
+    }
   `;
 
   connectedCallback(): void {
     super.connectedCallback();
     this.fetchPizzas();
-
-    this.#unwatch = watchAccount(wagmiConfig, {
-      onChange: () => this.fetchPizzas()
-    });
-  }
-
-  disconnectedCallback(): void {
-    super.disconnectedCallback();
-    this.#unwatch?.();
   }
 
   async fetchPizzas() {
     this.loading = true;
     this.pizzas = [];
-
-    const account = getAccount(wagmiConfig).address;
-    if (!account) {
-      this.loading = false;
-      return;
-    }
-
     try {
-      this.pizzas = await getMyPizzas(account);
+      const pizzas = await getAllPizzas();
+      this.pizzas = pizzas;
     } catch (e) {
       console.error(e);
     } finally {
@@ -76,25 +64,20 @@ export class VbtcMyPizzasList extends LitElement {
     }
   }
 
-  handleSold(e: CustomEvent) {
-    const soldId = e.detail;
-    this.pizzas = this.pizzas.filter(p => p.id !== soldId);
-  }
-
   render() {
     const currentAccount = getAccount(wagmiConfig).address;
     return html`
       <div class="card">
-        <h2>My Pizzas</h2>
+        <h2>All Pizzas</h2>
 
         ${this.loading
-        ? html`<div><sl-spinner style="font-size: 2rem;margin-bottom: 1rem;"></sl-spinner></div>`
+        ? html`<div><sl-spinner style="font-size: 2rem;"></sl-spinner></div>`
         : this.pizzas.length === 0
-          ? html`<p>You have no pizzas yet. Buy your first pizza!</p>`
+          ? html`<p>No pizzas have been created yet.</p>`
           : html`
-                <div class="pizza-list" @sold=${this.handleSold}>
+                <div class="pizza-list">
                   ${this.pizzas.map(
-            pizza => html`<vbtc-pizza-item .pizza=${pizza} .currentUser=${currentAccount}></vbtc-pizza-item>`
+            (pizza) => html`<vbtc-pizza-item .pizza=${pizza} .currentUser=${currentAccount}></vbtc-pizza-item>`
           )}
                 </div>
               `

@@ -1,4 +1,4 @@
-import { getAccount, watchAccount, } from '@wagmi/core';
+import { getAccount, watchAccount, WatchAccountReturnType, } from '@wagmi/core';
 import { customElement } from 'lit/decorators.js';
 import { formatUnits } from 'viem';
 import { getVBTCBalance } from '../vbtc/vbtc';
@@ -10,6 +10,8 @@ class VbtcBalanceCard extends VbtcBaseCard {
   constructor() {
     super('VBTC Balance');
   }
+
+  #unwatch: WatchAccountReturnType | null = null;
 
   connectedCallback(): void {
     super.connectedCallback();
@@ -23,7 +25,7 @@ class VbtcBalanceCard extends VbtcBaseCard {
     }
 
     // 지갑 연결 상태 변경 감지
-    watchAccount(wagmiConfig, {
+    this.#unwatch = watchAccount(wagmiConfig, {
       onChange: (account) => {
         if (account?.address) {
           this.fetchData();
@@ -32,6 +34,11 @@ class VbtcBalanceCard extends VbtcBaseCard {
         }
       }
     });
+  }
+
+  disconnectedCallback(): void {
+    super.disconnectedCallback();
+    this.#unwatch?.();
   }
 
   async fetchValueFromContract(): Promise<string> {
