@@ -1,3 +1,19 @@
-@import (inline) "~@rainbow-me/rainbowkit/styles.css";
-@import (inline) "~@ionic/core/css/ionic.bundle.css";
-@import (inline) "~@ionic/core/css/palettes/dark.always.css";
+@import (inline) '~@rainbow-me/rainbowkit/styles.css';
+
+@font-face {
+  font-family: 'DominoBrick';
+  src: url('/fonts/dominobrick.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  #index header {
+    background: url('/videos/hero.jpg') black no-repeat center center scroll;
+    background-size: cover;
+  }
+
+  #index header video {
+    display: none;
+  }
+}

@@ -5,7 +5,7 @@ module.exports = {
   entry: './client/main.ts',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './docs')
+    path: path.resolve(__dirname, './public')
   },
   module: {
     rules: [
@@ -53,7 +53,7 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: 'styles.css' }),
   ],
   devServer: {
-    static: './docs',
+    static: './public',
     historyApiFallback: true,
     client: {
       overlay: false,

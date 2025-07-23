@@ -5,14 +5,15 @@
     "start-webpack": "webpack serve --watch --mode=development",
     "start": "concurrently -k \"yarn watch-html\" \"yarn start-webpack\"",
     "dev": "concurrently -k \"yarn watch-html\" \"yarn start-webpack\"",
-    "build": "yarn build-html && webpack --mode=production"
+    "build": "yarn build-html && webpack --mode=production",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d public"
   },
   "dependencies": {
-    "@ionic/core": "^8.6.5",
     "@rainbow-me/rainbowkit": "^2.2.8",
     "@tanstack/react-query": "^5.83.0",
     "@webtaku/el": "^0.0.12",
-    "@webtaku/h": "^0.0.12",
+    "@webtaku/h": "^0.0.14",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "wagmi": "^2.15.7"
@@ -22,6 +23,7 @@
     "@types/react-dom": "^19.1.6",
     "concurrently": "^9.2.0",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "ignore-emit-webpack-plugin": "^2.0.6",
     "less": "^4.3.0",
     "less-loader": "^12.3.0",
