@@ -24,15 +24,18 @@ const pages: Page[] = [
 
 function renderPage(title: string, body: string) {
   return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title}</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="bundle.css">
-</head>
-  <body>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css">
+    <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+  </head>
+
+  <body class="sl-theme-dark">
     ${body}
     <script src="bundle.js"></script>
   </body>
@@ -41,6 +44,6 @@ function renderPage(title: string, body: string) {
 
 for (const page of pages) {
   const html = renderPage(page.title, page.content);
-  writeFileSync(join(__dirname, `../../docs/${page.filename}`), html);
+  writeFileSync(join(__dirname, `../docs/${page.filename}`), html);
   console.log(`✅ ${page.filename} generated.`);
 }

@@ -1,29 +1,29 @@
 const path = require('path');
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 
 module.exports = {
-  entry: {
-    bundle: './src/lib/index.ts',
-    styles: './styles/main.less'
-  },
+  entry: './client/main.ts',
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'docs')
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './docs')
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            configFile: 'tsconfig.client.json',
+          }
+        },
         exclude: /node_modules/
       },
       {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader, {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               url: false,
             },
@@ -33,7 +33,16 @@ module.exports = {
       },
       {
         test: /\.ya?ml$/,
-        use: 'yaml-loader',
+        use: "yaml-loader",
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset', // 100kb 이하면 자동으로 base64 인라인, 크면 파일로
+        parser: {
+          dataUrlCondition: {
+            maxSize: 100 * 1024 // 100kb
+          }
+        }
       },
     ]
   },
@@ -41,16 +50,15 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js']
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].css' }),
-    new IgnoreEmitPlugin(['styles.js']),
+    new MiniCssExtractPlugin({ filename: 'styles.css' }),
   ],
   devServer: {
     static: './docs',
+    historyApiFallback: true,
     client: {
       overlay: false,
       logging: 'none'
-    },
-    open: true
+    }
   },
   mode: 'development'
 };

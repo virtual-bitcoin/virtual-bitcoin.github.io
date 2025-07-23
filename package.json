@@ -1,12 +1,14 @@
 {
   "scripts": {
-    "build-html": "npx tsx src/site/build.ts",
-    "watch-html": "nodemon --watch src/site/pages --ext ts --exec \"yarn build-html\"",
+    "build-html": "npx tsx website/build.ts",
+    "watch-html": "nodemon --watch website/pages --ext ts --exec \"yarn build-html\"",
     "start-webpack": "webpack serve --watch --mode=development",
     "start": "concurrently -k \"yarn watch-html\" \"yarn start-webpack\"",
+    "dev": "concurrently -k \"yarn watch-html\" \"yarn start-webpack\"",
     "build": "yarn build-html && webpack --mode=production"
   },
   "dependencies": {
+    "@ionic/core": "^8.6.5",
     "@rainbow-me/rainbowkit": "^2.2.8",
     "@tanstack/react-query": "^5.83.0",
     "@webtaku/el": "^0.0.12",
