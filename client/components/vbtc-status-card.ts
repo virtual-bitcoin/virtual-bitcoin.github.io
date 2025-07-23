@@ -12,7 +12,7 @@ export class VbtcStatusCard extends LitElement {
       border-radius: 0.375rem;   /* rounded */
       box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* shadow-md */
       color: #9ca3af;            /* text-gray-400 */
-      margin: 0 16px;
+      margin: 16px;
     }
     .title {
       color: white;

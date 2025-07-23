@@ -20,6 +20,7 @@
     "wagmi": "^2.15.7"
   },
   "devDependencies": {
+    "@shoelace-style/shoelace": "^2.20.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "concurrently": "^9.2.0",
