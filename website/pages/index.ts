@@ -82,8 +82,8 @@ function createIndexPage() {
         h('li',
           h('strong.font-semibold.text-gray-300', 'Contract Address: '),
           h('a.text-blue-400.hover:text-blue-500.break-all',
-            { href: 'https://etherscan.io/token/0x84e7ae4897b3847b67f212aff78bfbc5f700aa40', target: '_blank' },
-            '0x84e7ae4897b3847b67f212aff78bfbc5f700aa40'
+            { href: 'https://etherscan.io/token/0x84e7AE4897B3847B67f212Aff78BFbC5f700aa40', target: '_blank' },
+            '0x84e7AE4897B3847B67f212Aff78BFbC5f700aa40'
           )
         ),
         h('li',

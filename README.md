@@ -12,7 +12,7 @@ The website provides information about the concept, community, and exchanges.
 ## Links
 
 * Website: [https://virtual-bitcoin.github.io](https://virtual-bitcoin.github.io)
-* Smart Contract: [Etherscan](https://etherscan.io/token/0x84e7ae4897b3847b67f212aff78bfbc5f700aa40)
+* Smart Contract: [Etherscan](https://etherscan.io/token/0x84e7AE4897B3847B67f212Aff78BFbC5f700aa40)
 * Smart Contract Source: [https://github.com/virtual-bitcoin/virtual-bitcoin](https://github.com/virtual-bitcoin/virtual-bitcoin)
 
 ## License

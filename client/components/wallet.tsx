@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { darkTheme, getDefaultWallets, RainbowKitProvider, useConnectModal } from '@rainbow-me/rainbowkit';
+import { ConnectButton, darkTheme, getDefaultWallets, RainbowKitProvider, useConnectModal } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { el } from '@webtaku/el';
 import {
@@ -56,7 +56,22 @@ function createRainbowKit() {
   return container;
 }
 
+function createConnectButton() {
+  const container = el();
+  createRoot(container).render(
+    <QueryClientProvider client={queryClient}>
+      <WagmiProvider config={config}>
+        <RainbowKitProvider theme={darkTheme()}>
+          <ConnectButton />
+        </RainbowKitProvider>
+      </WagmiProvider>
+    </QueryClientProvider>
+  );
+  return container;
+}
+
 export {
   createRainbowKit,
-  openWalletConnectModal, config as wagmiConfig
+  openWalletConnectModal, config as wagmiConfig,
+  createConnectButton
 };

@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync } from 'fs';
 import { join } from 'path';
 import { createIndexPage } from './pages/index';
-import { createMiningPage } from './pages/mininig';
+import { createMiningPage } from './pages/mining';
 import { h } from '@webtaku/h';
 
 const LOGO_IMAGE = readFileSync('./assets/logo.png').toString('base64');
@@ -19,7 +19,7 @@ const pages: Page[] = [
     content: createIndexPage()
   },
   {
-    filename: 'mininig.html',
+    filename: 'mining.html',
     title: 'Mining VBTC',
     content: createMiningPage()
   }
@@ -64,7 +64,7 @@ function renderPage(title: string, body: string) {
           ),
           h(
             'a',
-            { href: 'mininig.html' },
+            { href: 'mining.html' },
             h('sl-button', 'Mining VBTC')
           )
         )
