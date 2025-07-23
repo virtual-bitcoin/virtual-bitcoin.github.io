@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[877],{60877:(e,l,n)=>{n.r(l),n.d(l,{externalLinkSvg:()=>a});const a=n(12618).JW`<svg fill="none" viewBox="0 0 14 15">
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[877],{60877:(e,l,n)=>{n.r(l),n.d(l,{externalLinkSvg:()=>a});const a=n(91135).JW`<svg fill="none" viewBox="0 0 14 15">
   <path
     fill="currentColor"
     fill-rule="evenodd"

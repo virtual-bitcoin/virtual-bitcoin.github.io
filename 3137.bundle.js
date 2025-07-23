@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[3137],{95518:(l,s,e)=>{e.r(s),e.d(s,{cursorTransparentSvg:()=>r});const r=e(12618).JW`<svg fill="none" viewBox="0 0 14 6">
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[3137],{95518:(l,s,e)=>{e.r(s),e.d(s,{cursorTransparentSvg:()=>r});const r=e(91135).JW`<svg fill="none" viewBox="0 0 14 6">
   <path style="fill: var(--wui-color-bg-150);" d="M0 1h14L9.21 5.12a3.31 3.31 0 0 1-4.49 0L0 1Z" />
   <path
     style="stroke: var(--wui-color-inverse-100);"
