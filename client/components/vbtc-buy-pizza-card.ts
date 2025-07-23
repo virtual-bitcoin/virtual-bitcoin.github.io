@@ -1,6 +1,7 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { buyPizza } from '../vbtc/vbtc';
+import { showErrorAlert } from './alert';
 
 @customElement('vbtc-buy-pizza-card')
 export class VbtcBuyPizzaCard extends LitElement {
@@ -89,9 +90,9 @@ export class VbtcBuyPizzaCard extends LitElement {
         composed: true,
         detail: { power: this.power }
       }));
-    } catch (e) {
-      console.error(e);
-      alert(`Failed to buy pizza`);
+    } catch (err) {
+      console.error(err);
+      showErrorAlert('Failed to buy pizza', err instanceof Error ? err.message : String(err));
     } finally {
       this.buying = false;
     }
@@ -129,8 +130,8 @@ export class VbtcBuyPizzaCard extends LitElement {
           >
             <sl-icon name="cart" slot="prefix"></sl-icon>
             ${this.buying
-              ? html`<sl-spinner style="--indicator-size: 1em"></sl-spinner>`
-              : 'Buy Pizza'}
+        ? html`<sl-spinner style="--indicator-size: 1em"></sl-spinner>`
+        : 'Buy Pizza'}
           </sl-button>
         </div>
       </div>
