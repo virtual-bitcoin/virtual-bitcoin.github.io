@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 
 import { ConnectButton, darkTheme, getDefaultWallets, RainbowKitProvider, useConnectModal } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { getPublicClient } from '@wagmi/core';
 import { el } from '@webtaku/el';
 import {
   createConfig,
@@ -69,9 +70,10 @@ function createConnectButton() {
   );
   return container;
 }
+const publicClient = getPublicClient(config, { chainId: mainnet.id });
 
 export {
-  createRainbowKit,
-  openWalletConnectModal, config as wagmiConfig,
-  createConnectButton
+  createConnectButton, createRainbowKit,
+  openWalletConnectModal, publicClient, config as wagmiConfig
 };
+

@@ -41,6 +41,15 @@ function createIndexPage() {
         )
       ),
 
+      h('section.container.mx-auto.my-16.text-center.px-4',
+        h('h2.text-3xl.md:text-4xl.font-semibold',
+          'Next Virtual Bitcoin Halving'
+        ),
+        h('p#halving-info.text-lg.text-gray-400.mt-4.max-w-3xl.mx-auto',
+          h('sl-spinner')
+        )
+      ),
+
       h('section.container.mx-auto.my-16.px-4',
         h('div.grid.md:grid-cols-2.gap-8',
           // [수정] 카드 배경을 bg-gray-900, 경계선을 border-gray-800으로 변경

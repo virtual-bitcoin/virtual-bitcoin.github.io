@@ -3,6 +3,18 @@
 /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
 
 /**
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+/**
  * @license React
  * react-dom-client.production.js
  *

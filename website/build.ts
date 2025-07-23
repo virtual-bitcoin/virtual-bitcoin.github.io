@@ -74,9 +74,26 @@ function renderPage(title: string, body: string) {
       body,
 
       // [추가] 사이트 전체에 적용될 공통 푸터
-      h('footer.bg-gray-950.border-t.border-gray-800.mt-16',
-        h('div.container.mx-auto.px-4.py-6.text-center.text-gray-500.text-sm',
-          `${new Date().getFullYear()} Virtual Bitcoin. Open Source under the MIT License.`
+      h(
+        'footer.bg-gray-950.border-t.border-gray-800.mt-16',
+        h(
+          'div.container.mx-auto.px-4.py-6.text-center.text-gray-500.text-sm.space-y-2',
+          h(
+            'div',
+            `${new Date().getFullYear()} Virtual Bitcoin. Open Source under the MIT License.`
+          ),
+          h(
+            'div',
+            h(
+              'a.text-blue-400.hover:text-blue-500',
+              {
+                href: 'https://x.com/virtual_bitcoin',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              },
+              'Follow Virtual Bitcoin on 𝕏'
+            )
+          )
         )
       ),
 

@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[1975],{51975:(C,e,l)=>{l.r(e),l.d(e,{swapHorizontalMediumSvg:()=>s});const s=l(12618).JW`<svg
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[1975],{51975:(C,e,l)=>{l.r(e),l.d(e,{swapHorizontalMediumSvg:()=>s});const s=l(91135).JW`<svg
   width="14"
   height="14"
   viewBox="0 0 14 14"

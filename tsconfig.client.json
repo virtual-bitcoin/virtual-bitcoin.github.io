@@ -3,6 +3,8 @@
     "jsx": "react",
     "target": "ESNext",
     "module": "ESNext",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "noImplicitAny": true,
     "preserveConstEnums": true,
     "inlineSources": true,
