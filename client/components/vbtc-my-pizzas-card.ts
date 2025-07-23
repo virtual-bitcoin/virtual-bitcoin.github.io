@@ -1,14 +1,34 @@
-import { getAccount } from '@wagmi/core';
+import { getAccount, watchAccount } from '@wagmi/core';
 import { customElement } from 'lit/decorators.js';
-import { VbtcBaseCard } from './vbtc-base-card';
 import { getMyPizzas } from '../vbtc/vbtc';
+import { VbtcBaseCard } from './vbtc-base-card';
 import { wagmiConfig } from './wallet';
-import { zeroAddress } from 'viem';
 
 @customElement('vbtc-my-pizzas-card')
 class VbtcMyPizzasCard extends VbtcBaseCard {
   constructor() {
     super('My Pizzas');
+  }
+
+  connectedCallback(): void {
+    super.connectedCallback();
+
+    const account = getAccount(wagmiConfig).address;
+    if (account) {
+      this.fetchData();
+    } else {
+      this.value = 'Not Connected';
+    }
+
+    watchAccount(wagmiConfig, {
+      onChange: (account) => {
+        if (account?.address) {
+          this.fetchData();
+        } else {
+          this.value = 'Not Connected';
+        }
+      }
+    });
   }
 
   async fetchValueFromContract(): Promise<string> {
