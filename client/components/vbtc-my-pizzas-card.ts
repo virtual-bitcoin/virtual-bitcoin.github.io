@@ -12,8 +12,10 @@ class VbtcMyPizzasCard extends VbtcBaseCard {
   }
 
   async fetchValueFromContract(): Promise<string> {
-    const address = getAccount(wagmiConfig).address;
-    const myPizzas = await getMyPizzas(address);
+    const account = getAccount(wagmiConfig).address;
+    if (!account) return 'Not Connected';
+
+    const myPizzas = await getMyPizzas(account);
     return myPizzas.toString();
   }
 }

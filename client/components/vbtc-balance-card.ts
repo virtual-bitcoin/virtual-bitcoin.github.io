@@ -12,11 +12,11 @@ class VbtcBalanceCard extends VbtcBaseCard {
   }
 
   async fetchValueFromContract(): Promise<string> {
-    const balance = await getVBTCBalance(getAccount(wagmiConfig).address);
+    const account = getAccount(wagmiConfig).address;
+    if (!account) return 'Not Connected';
 
+    const balance = await getVBTCBalance(account);
     const formatted = Number(formatUnits(balance, 8));
-
-    // 소수점 2자리, 천단위 콤마
     return formatted.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 }

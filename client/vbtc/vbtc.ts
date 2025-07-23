@@ -1,4 +1,4 @@
-import { parseAbi, zeroAddress } from 'viem';
+import { parseAbi } from 'viem';
 import { publicClient } from '../components/wallet'; // <-- make sure publicClient is viem Client
 
 export const VBTC_ADDRESS = '0x84e7AE4897B3847B67f212Aff78BFbC5f700aa40' as const;
@@ -65,11 +65,7 @@ export async function getTotalPizzas(): Promise<bigint> {
   });
 }
 
-export async function getVBTCBalance(
-  address: `0x${string}` | undefined
-): Promise<bigint> {
-  if (!address) return 0n;
-
+export async function getVBTCBalance(address: `0x${string}`): Promise<bigint> {
   const target = address;
   return await publicClient.readContract({
     address: VBTC_ADDRESS,
@@ -79,16 +75,10 @@ export async function getVBTCBalance(
   });
 }
 
-export async function getMyPizzas(
-  owner: `0x${string}` | undefined,
-  maxScan: number = 5_000
-): Promise<bigint> {
-  if (!owner) return 0n;
-
+export async function getMyPizzas(owner: `0x${string}`): Promise<bigint> {
   const total = await getTotalPizzas();
-  const last = Number(total < BigInt(maxScan) ? total : BigInt(maxScan));
 
-  const calls = Array.from({ length: last }, (_, idx) => ({
+  const calls = Array.from({ length: Number(total) }, (_, idx) => ({
     address: VBTC_ADDRESS,
     abi: VBTC_ABI,
     functionName: 'pizzas',

@@ -1,11 +1,13 @@
 import { el } from '@webtaku/el';
 import './components/vbtc-balance-card';
 import './components/vbtc-my-pizzas-card';
+import './components/vbtc-status-card';
 import './components/vbtc-total-pizzas-card';
 import './components/vbtc-total-supply-card';
 import { createConnectButton } from './components/wallet';
 import './main.less';
 import { getBlocksUntilNextHalving } from './vbtc/vbtc';
+import { setStatusMessage } from './components/vbtc-status-card';
 
 const halvingInfoContainer = document.getElementById('halving-info');
 if (halvingInfoContainer) {
@@ -27,9 +29,14 @@ const miningInterfaceContainer = document.getElementById('mining-interface');
 if (miningInterfaceContainer) {
   miningInterfaceContainer.innerHTML = '';
   miningInterfaceContainer.append(
-    el('section.container.mx-auto.my-8.px-4.text-center',
-      el('div.mt-8.flex.justify-center.items-center', createConnectButton()),
-      el('div.grid.grid-cols-2.md:grid-cols-4.gap-4.mt-8',
+    el(
+      'section.container.mx-auto.my-8.px-4.text-center',
+      el(
+        'div.mt-8.flex.justify-center.items-center',
+        createConnectButton()
+      ),
+      el(
+        'div.grid.gap-4.mt-8.grid-cols-1.sm:grid-cols-2.lg:grid-cols-4',
         el('vbtc-balance-card'),
         el('vbtc-total-supply-card'),
         el('vbtc-total-pizzas-card'),
@@ -71,11 +78,6 @@ if (miningInterfaceContainer) {
     ),
 
     // Status
-    el('section.container.mx-auto.my-8.px-4',
-      el('div.bg-gray-800.shadow-md.rounded.p-6',
-        el('h2.text-2xl.font-semibold.mb-4.text-white', 'Status'),
-        el('p.text-gray-400', 'Current status will be displayed here.')
-      )
-    )
+    el('vbtc-status-card')
   );
 }
