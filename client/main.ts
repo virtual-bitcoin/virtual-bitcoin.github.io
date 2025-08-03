@@ -10,7 +10,7 @@ import './components/vbtc-status-card';
 import './components/vbtc-total-pizzas-card';
 import './components/vbtc-total-supply-card';
 import { createConnectButton } from './components/wallet';
-import './main.less';
+import './main.css';
 import { getBlocksUntilNextHalving } from './vbtc/vbtc';
 
 const halvingInfoContainer = document.getElementById('halving-info');
